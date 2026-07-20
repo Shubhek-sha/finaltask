@@ -1,0 +1,10 @@
+import { describe, expect, it } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { {{name.pascal}}Page } from "./{{name.pascal}}Page";
+
+describe("{{name.pascal}}Page", () => {
+  it("renders the module heading", () => {
+    render(<{{name.pascal}}Page />);
+    expect(screen.getByRole("heading", { name: "{{name.title}}" })).toBeInTheDocument();
+  });
+});

@@ -1,0 +1,10 @@
+import { describe, expect, it } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { {{name.pascal}} } from "./{{name.pascal}}";
+
+describe("{{name.pascal}}", () => {
+  it("renders", () => {
+    render(<{{name.pascal}} />);
+    expect(screen.getByText("{{name.title}}")).toBeInTheDocument();
+  });
+});

@@ -1,0 +1,12 @@
+import { lazy } from "react";
+
+const {{name.pascal}}Page = lazy(() =>
+  import("./{{name.pascal}}Page").then((m) => ({ default: m.{{name.pascal}}Page })),
+);
+
+export const {{name.camel}}Routes = [
+  {
+    path: "{{name.kebab}}",
+    Component: {{name.pascal}}Page,
+  },
+];

@@ -14,12 +14,14 @@
     "test": "turbo run test",
     "test:e2e": "turbo run test:e2e",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --cache",
-    "clean": "turbo run clean && rimraf node_modules"
+    "clean": "turbo run clean && rimraf node_modules",
+    "gen": "tsx tools/codegen/src/cli.ts"
   },
   "devDependencies": {
     "turbo": "^2.3.0",
     "prettier": "^3.4.0",
     "rimraf": "^6.0.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "tsx": "^4.19.2"
   }
 }

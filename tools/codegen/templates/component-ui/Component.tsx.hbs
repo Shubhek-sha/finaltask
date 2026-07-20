@@ -1,0 +1,8 @@
+import { forwardRef } from "react";
+import type { HTMLAttributes } from "react";
+import { cn } from "../../lib/cn";
+
+export const {{name.pascal}} = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => <div ref={ref} className={cn(className)} {...props} />,
+);
+{{name.pascal}}.displayName = "{{name.pascal}}";

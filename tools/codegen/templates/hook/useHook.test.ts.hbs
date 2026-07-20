@@ -1,0 +1,16 @@
+import { act, renderHook } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
+import { {{hookName}} } from "./{{hookName}}";
+
+describe("{{hookName}}", () => {
+  it("initializes with a null value", () => {
+    const { result } = renderHook(() => {{hookName}}());
+    expect(result.current.value).toBeNull();
+  });
+
+  it("updates the value via setValue", () => {
+    const { result } = renderHook(() => {{hookName}}());
+    act(() => result.current.setValue("hello"));
+    expect(result.current.value).toBe("hello");
+  });
+});
