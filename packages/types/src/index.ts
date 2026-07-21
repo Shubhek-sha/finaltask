@@ -9,3 +9,8 @@
  */
 
 export const FORGE_TYPES_VERSION = "0.0.0";
+
+export * from "./permission";
+export * from "./role";
+export * from "./organization";
+export * from "./user";

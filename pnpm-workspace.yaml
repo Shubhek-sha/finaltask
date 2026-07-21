@@ -5,3 +5,4 @@ packages:
   - "experiments/*"
 allowBuilds:
   esbuild: true
+  msw: true
