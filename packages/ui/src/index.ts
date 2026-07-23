@@ -16,3 +16,4 @@ export * from "./components/modal";
 export * from "./components/toast";
 export * from "./components/table";
 export * from "./components/form";
+export * from "./components/can";

@@ -14,3 +14,4 @@ export * from "./permission";
 export * from "./role";
 export * from "./organization";
 export * from "./user";
+export * from "./auth";

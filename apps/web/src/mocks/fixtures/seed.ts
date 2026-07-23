@@ -1,5 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { db } from "../db";
+import { credentials, DEMO_PASSWORD, setCredential } from "./credentials";
 import { createOrganization } from "./organization";
 import { createRoles } from "./role";
 import { createUser } from "./user";
@@ -24,6 +25,7 @@ export function seedDatabase() {
   db.organizations.clear();
   db.roles.clear();
   db.users.clear();
+  credentials.clear();
 
   const organization = db.organizations.create(createOrganization());
 
@@ -39,7 +41,7 @@ export function seedDatabase() {
   };
 
   for (const demo of DEMO_USERS) {
-    db.users.create(
+    const user = db.users.create(
       createUser({
         organizationId: organization.id,
         roleId: roleByName[demo.role].id,
@@ -47,12 +49,14 @@ export function seedDatabase() {
         email: demo.email,
       }),
     );
+    setCredential(user.email, DEMO_PASSWORD);
   }
 
   for (let i = 0; i < RANDOM_EMPLOYEE_COUNT; i++) {
-    db.users.create(
+    const user = db.users.create(
       createUser({ organizationId: organization.id, roleId: employeeRole.id }),
     );
+    setCredential(user.email, DEMO_PASSWORD);
   }
 
   return {

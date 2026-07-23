@@ -24,6 +24,9 @@ export default [
       ...tseslint.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      // TypeScript already catches undefined identifiers (and understands
+      // ambient lib types like RequestInit that no-undef doesn't).
+      "no-undef": "off",
     },
   },
   prettier,
