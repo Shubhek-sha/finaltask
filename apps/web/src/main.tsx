@@ -4,7 +4,9 @@ import './index.css'
 import App from './App'
 
 async function enableMocking() {
-  if (!import.meta.env.DEV) return
+  // This app has no real backend by design (see ARCHITECTURE.md §2.1) — MSW
+  // stands in for one in every environment, including production, not just
+  // local dev.
   const { worker } = await import('./mocks/browser')
   const { seedDatabase } = await import('./mocks/fixtures/seed')
   seedDatabase()

@@ -83,7 +83,7 @@ function HomePage() {
         <div className="space-y-1">
           <h1 className="text-2xl font-semibold">Forge — Design System</h1>
           <p className="text-sm text-text-muted">
-            Phase 1 showcase: every packages/ui component exercised on one page.
+             every packages/ui component exercised on one page.
           </p>
         </div>
         <div className="flex items-center gap-3">
