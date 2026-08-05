@@ -93,14 +93,21 @@ UI, so don't go looking for it.
 This is a static SPA (no real backend), so it deploys cleanly to Vercel:
 
 1. Import the repo into Vercel.
-2. Project Settings → **Root Directory**: `apps/web` (that's where [vercel.json](apps/web/vercel.json)
-   lives — it just adds the SPA rewrite so client-side routes like `/login` don't 404 on refresh).
+2. **Leave Root Directory as the repo root** (do *not* point it at `apps/web`) — [vercel.json](./vercel.json)
+   at the repo root already tells Vercel everything it needs:
+   - `installCommand: pnpm install --frozen-lockfile` — installs the whole pnpm workspace, so the
+     `workspace:*` deps (`@forge/ui`, `@forge/sdk`, `@forge/types`) resolve correctly.
+   - `buildCommand: pnpm --filter @forge/web build` — builds only the web app.
+   - `outputDirectory: apps/web/dist` — where Vite puts the build.
+   - `rewrites` — SPA fallback so client-side routes like `/login` don't 404 on refresh.
 3. Project Settings → **Node.js Version**: 22.x (matches the `engines` field in the root
    `package.json`).
 4. No environment variables are required — MSW mocks the API in every environment, including
    production.
 
-Vercel auto-detects the Vite build and the pnpm workspace from the repo-root `pnpm-lock.yaml`.
+If Root Directory was previously set to `apps/web` in the dashboard from an earlier attempt,
+change it back to blank/root — with this config, Vercel needs to run from the monorepo root so
+`pnpm install` can see all the workspace packages.
 
 ## 7. Repo layout (quick reference)
 
